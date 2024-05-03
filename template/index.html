@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disease Prediction</title>
+  <style>
+    #screen{
+      background-color: lightgreen;
+      margin:0px 5px;
+    }
+    #nav{
+      background-color: darkblue;
+      color: white;
+      height: 65px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #header{
+      position: fixed;
+      top: 0px;
+      right: 0;
+      left: 0;
+      z-index: 1;
+      margin: 0 12px;
+      border-radius: 0 20%;
+    }
+    #text{
+      padding-top: 110px;
+      text-decoration: underline;
+    }
+    #container{
+      height: auto;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      margin: 0 auto;
+    }
+    @media only screen and (max-width: 1200px) {
+    #container {
+      flex-direction: column;
+      }
+    }
+
+    #box{
+      border: 2px solid gray;
+      background-color: lightblue;
+      border-radius: 20px;
+      margin: 40px auto;
+      position: relative;
+      height: auto;
+      width: auto;
+    }
+    form{
+      padding: -25px 3px;
+      margin: 0px 5px;
+      z-index: 10;
+      height: auto;
+    }
+    #foo{
+      width: 100%;
+      background-color: seagreen;
+      height: auto;
+      margin-top: 220px;
+    }
+  </style>
+</head>
+<body>
+  <div className=" w-full h-full" id="screen">
+
+    <div id="header" class="mx-1 z-10 fixed top-0 right-0 left-0 inset-0 flex justify-center items-center pointer-events-none h-16 bg-green-800">
+        <h1 class=" text-6xl font-bold text-white" id="nav">Doctor-G</h1>
+    </div>
+
+
+    <div id="text" class=" sm:absolute mx-2 mt-20 bg-green-400 rounded-2xl"><h3 class="mx-2 font-bold text-black">This website is no more a hi-fi project with unlimited props but it largely exphasis on supervised learning logistic regression model, You can go through different flex boxes and check prediction for yourself.Also it is an example of a decent responsive website stable for all screen devices</h3></div>
+
+    <div id="container" class="sm:mt-40 grid sm:grid-rows-2 sm:grid-cols-2 grid-rows-4 gap-8 absolute h-auto mt-20 w-full justify-center">
+      <div id="box" class="bg-yellow-100 rounded-3xl h-3/4 w-9/10 mx-auto md:mx-36 text-center border-8 border-green-400">
+        <h2 style="text-align: center;" class="text-2xl">Diabetes Prediction</h2>
+        <form class="mx-1 flex flex-col" method="post" action="/predict">
+            {% if result %}
+            <h4 style="color: darkgreen;">{{result}}</h4>
+            {% endif %}
+          Pregnancies <input class="hover:bg-blue-100" type="text" name="a" placeholder="Number Only">
+          <h6>Glucose <input class="hover:bg-blue-100" type="text" name="b" placeholder="Glucose level here"></h6>
+          <h6>BloodPressure <input class="hover:bg-blue-100" type="text" name="c" placeholder="Blood Pressure here"></h6>
+          <h6>SkinThickness <input class="hover:bg-blue-100" type="text" name="d" placeholder="Skin thickness in mm3"></h6>
+          <h6>Insulin <input class="hover:bg-blue-100" type="text" name="e" placeholder="Insulin level"></h6>
+          <h6>BMI <input class="hover:bg-blue-100" type="text" name="f" placeholder="Body Mass Index"></h6>
+          <h6>DiabetesPedigreeFunction <input class="hover:bg-blue-100" type="text" name="g" placeholder="Age(number only)"></h6>
+          <h6>Age <input class="hover:bg-blue-100" type="text" name="h" placeholder="Number Only"></h6>
+          <input class="hover:bg-green-400 rounded-md my-4 hover:bg-4 mx-8 hover:text-white hover:border-4" type="submit" value="Predict"/>
+        </form>
+      </div>
+      <div id="box" style="height: 710px;" class="bg-yellow-100  rounded-3xl h-auto w-9/10 md:mx-36 mx-auto text-center border-8 border-green-400">
+      <h2 style="text-align: center;" class="text-2xl">Heart disease</h2>
+        <form class="mx-1 flex flex-col" method="post" action="/predict2">
+          {% if result2 %}
+          <h4 style="color: darkgreen;">{{result2}}</h4>
+          {% endif %}
+          <h6>Age <input class="hover:bg-blue-100" type="text" name="a" placeholder="Number Only"/></h6>
+          <h6>Sex/Gender <input class="hover:bg-blue-100" type="text" name="b" placeholder="Glucose level here"/></h6>
+          <h6>Constrictive Pericarditis <input class="hover:bg-blue-100" type="text" name="c" placeholder="Blood Pressure here"/></h6>
+          <h6>Tresbps <input class="hover:bg-blue-100" type="text" name="d" placeholder="Skin thickness in mm3"/></h6>
+          <h6>Cholestrol <input class="hover:bg-blue-100" type="text" name="e" placeholder="Insulin level"/></h6>
+          <h6>FBS <input class="hover:bg-blue-100" type="text" name="f" placeholder="Body Mass Index"/></h6>
+          <h6>Rest ECG <input class="hover:bg-blue-100" type="text" name="g" placeholder="Age(number only)"/></h6>
+          <h6>Thalach <input class="hover:bg-blue-100" type="text" name="h" placeholder="Number Only"/></h6>
+          <h6>Exang <input class="hover:bg-blue-100" type="text" name="i" placeholder="Number Only"/></h6>
+          <h6>Old Peak <input class="hover:bg-blue-100" type="text" name="j" placeholder="Number Only"/></h6>
+          <h6>Slope <input class="hover:bg-blue-100" type="text" name="k" placeholder="Number Only"/></h6>
+          <h6>CA <input class="hover:bg-blue-100" type="text" name="l" placeholder="Number Only"/></h6>
+          <h6>Thal <input class="hover:bg-blue-100" type="text" name="m" placeholder="Number Only"/></h6>
+          <input class="hover:bg-green-400 rounded-md my-4 hover:bg-4 mx-8 hover:text-white hover:border-4 " type="submit" value="Predict"/>
+        </form>
+      </div>
+      <div id="box" class="bg-yellow-100  rounded-3xl h-auto w-9/10 md:mx-36 mx-auto text-center border-8 border-green-400">
+      <h2 style="text-align: center;" class="text-2xl">Mental State</h2>
+        <form class="mx-1 flex flex-col" method="post" action="/predict1">
+          <h6>Pregnancies <input class="hover:bg-blue-100" type="text" name="a" placeholder="Number Only"/></h6>
+          <h6>Glucose <input class="hover:bg-blue-100" type="text" name="b" placeholder="Glucose level here"/></h6>
+          <h6>BloodPressure <input class="hover:bg-blue-100" type="text" name="c" placeholder="Blood Pressure here"/></h6>
+          <h6>SkinThickness<input class="hover:bg-blue-100" type="text" name="d" placeholder="Skin thickness in mm3"/></h6>
+          <h6>Insulin<input class="hover:bg-blue-100" type="text" name="e" placeholder="Insulin level"/></h6>
+          <h6>BMI<input class="hover:bg-blue-100" type="text" name="f" placeholder="Body Mass Index"/></h6>
+          <h6>DiabetesPedigreeFunction <input class="hover:bg-blue-100" type="text" name="g" placeholder="Age(number only)"/></h6>
+          <h6>Age<input class="hover:bg-blue-100" type="text" name="h" placeholder="Number Only"/></h6>
+          <input class="hover:bg-green-400 rounded-md my-4 hover:bg-4 mx-8 hover:text-white hover:border-4 " type="submit" value="Predict"/>
+        </form>
+      </div>
+      <div id="box" style="height: 710px;" class="bg-yellow-100  rounded-3xl h-auto w-9/10 md:mx-36 mx-auto text-center border-8 border-green-400">
+      <h2 style="text-align: center;" class="text-2xl">ADHD</h2>
+        <form class="mx-1 flex flex-col" method="post" action="/predict2">
+          <h6>Age<input class="hover:bg-blue-100" type="text" name="a" placeholder="Number Only"/></h6>
+          <h6>Sex/Gender<input class="hover:bg-blue-100" type="text" name="b" placeholder="Glucose level here"/></h6>
+          <h6>Constrictive Pericarditis<input class="hover:bg-blue-100" type="text" name="c" placeholder="Blood Pressure here"/></h6>
+          <h6>Tresbps<input class="hover:bg-blue-100" type="text" name="d" placeholder="Skin thickness in mm3"/></h6>
+          <h6>Cholestrol<input class="hover:bg-blue-100" type="text" name="e" placeholder="Insulin level"/></h6>
+          <h6>FBS<input class="hover:bg-blue-100" type="text" name="f" placeholder="Body Mass Index"/></h6>
+          <h6>Rest ECG<input class="hover:bg-blue-100" type="text" name="g" placeholder="Age(number only)"/></h6>
+          <h6>Thalach<input class="hover:bg-blue-100" type="text" name="h" placeholder="Number Only"/></h6>
+          <h6>Exang<input class="hover:bg-blue-100" type="text" name="h" placeholder="Number Only"/></h6>
+          <h6>Old Peak<input class="hover:bg-blue-100" type="text" name="h" placeholder="Number Only"/></h6>
+          <h6>Slope<input class="hover:bg-blue-100" type="text" name="h" placeholder="Number Only"/></h6>
+          <h6>CA<input class="hover:bg-blue-100" type="text" name="h" placeholder="Number Only"/></h6>
+          <h6>Thal<input class="hover:bg-blue-100" type="text" name="h" placeholder="Number Only"/></h6>
+          <input class="hover:bg-green-400 rounded-md my-4 hover:bg-4 mx-8 hover:text-white hover:border-4 " type="submit" value="Predict"/>
+        </form>
+      </div>
+    </div>
+
+    <div id="foo"><h1 style="color: white;">It's a humble request to the visitor to not rely on the results generated by this website. As the model is trained on small dataset and me myself don't believe on any such predictor predicting disease specially when the dataset is small. I built this just for my mini project and entertainment purposes</h1></div>
+  </div>
+
+</body>
+</html>
